@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squeeze | Premium Image Compressor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Google Fonts for Premium Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span class="material-icons-round">compress</span> Squeeze
+            </div>
+            <p class="subtitle">Smart compression without losing the details.</p>
+        </header>
+
+        <div class="card glass-panel">
+            <div class="upload-area" id="uploadArea">
+                <input type="file" id="fileInput" accept="image/*" hidden>
+                <div class="upload-content">
+                    <span class="material-icons-round icon-lg">cloud_upload</span>
+                    <h3>Drag & Drop or Browse</h3>
+                    <p>Supports files up to 10MB</p>
+                </div>
+            </div>
+
+            <div class="controls hidden" id="controls">
+                <div class="file-info">
+                    <span class="material-icons-round">image</span>
+                    <span id="fileName">image.jpg</span>
+                    <span class="remove-btn" id="removeBtn">&times;</span>
+                </div>
+
+                <div class="slider-container">
+                    <div class="slider-label">
+                        <span>Quality</span>
+                        <span id="qualityValue">80%</span>
+                    </div>
+                    <input type="range" min="1" max="100" value="80" class="slider" id="qualitySlider">
+                    <div class="quality-indicators">
+                        <span>Low Size</span>
+                        <span>High Detail</span>
+                    </div>
+                </div>
+
+                <div class="stats-container hidden" id="statsContainer">
+                    <div class="stat-item">
+                        <span class="stat-label">Original</span>
+                        <span class="stat-value" id="originalSize">--</span>
+                    </div>
+                    <div class="stat-divider">
+                        <span class="material-icons-round">arrow_forward</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Compressed</span>
+                        <span class="stat-value" id="compressedSize">--</span>
+                    </div>
+                    <div class="stat-badges">
+                        <span class="badge" id="savingBadge">0% Saved</span>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" id="compressBtn">
+                    <span class="material-icons-round">bolt</span> Compress & Download
+                </button>
+            </div>
+        </div>
+
+        <footer>
+            &copy; 2026 Squeeze. Designed for performance.
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
